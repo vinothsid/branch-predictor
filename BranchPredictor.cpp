@@ -142,6 +142,14 @@ int Predictor::run(char *fileName ) {
 
 	}
 
+	double misPredictRate;
+	misPredictRate = (double)numMispredict/(double)numBranches * 100 ;
+	cout << "number of predictions:\t" << numBranches << endl;
+	cout << "number of mispredictions:\t" << numMispredict << endl;
+	cout << "misprediction rate:\t" << fixed << setprecision(2) << misPredictRate << "%" << endl;
+
+
+
 }
 
 int Predictor::predict(unsigned int pc) {
@@ -175,12 +183,6 @@ int Predictor::update( unsigned int pc,int outcome ) {
 
 int Predictor::print( char *type) {
 
-	double misPredictRate;
-	misPredictRate = (double)numMispredict/(double)numBranches * 100 ;
-	cout << "number of predictions:\t" << numBranches << endl;
-	cout << "number of mispredictions:\t" << numMispredict << endl;
-	cout << "misprediction rate:\t" << fixed << setprecision(2) << misPredictRate << "%" << endl;
-
 
 	string str(type);
 	transform(str.begin(),str.end(),str.begin(),::toupper);	
@@ -192,34 +194,206 @@ int Predictor::print( char *type) {
 	}
 }
 
+class HybridPredictor {
+	Predictor *bimodal;
+	Predictor *gshare;
+	int k;
+	int *chooserTable;
+	int chooserTableSize;
+	int numBranches;
+	int numMispredict;
+	int highLimit;
+	int lowLimit;
+public:
+	HybridPredictor(int kVal,int m1Val,int nVal,int m2Val );
+	int getIndex(unsigned int pc);
+	int incrChooserTable(int index);
+	int decrChooserTable(int index);
+	int predict(unsigned int pc,int outcome);
+	int run(char *fileName);
+	int print();
+};
+
+HybridPredictor::HybridPredictor(int kVal,int m1Val,int nVal,int m2Val ) {
+
+	k = kVal;
+	chooserTableSize = 1 << k;
+	chooserTable = new int[chooserTableSize];
+	gshare = new Predictor(m1Val,nVal);
+	bimodal = new Predictor(m2Val,0);
+	numBranches = 0;
+	numMispredict = 0;
+
+	highLimit  =3;
+	lowLimit = 0;
+	for(int i=0;i<chooserTableSize;i++)
+		chooserTable[i] = 1;
+
+}
+
+int HybridPredictor::getIndex(unsigned int pc) {
+
+        unsigned int mask = 0;
+        for(int i=0;i<k;i++) {
+                mask = mask << 1;
+                mask = mask|1;
+        }
+
+        mask = mask << 2;
+
+        int index = pc & mask;
+        index = index >> 2;
+
+	return index;
+
+}
+
+int HybridPredictor::incrChooserTable(int index) {
+        if (chooserTable[index] < highLimit)
+                chooserTable[index]++;
+
+        return 0;
+
+
+}
+
+int HybridPredictor::decrChooserTable(int index) {
+
+        if ( chooserTable[index] > lowLimit)
+                chooserTable[index]--;
+
+        return 0;
+
+}
+
+int HybridPredictor::predict(unsigned int pc,int outcome) {
+
+	int index = getIndex(pc);
+
+	int bimodalPred = bimodal->predict(pc);
+	int gsharePred = gshare->predict(pc);
+
+	int finalPred;
+	
+	if(chooserTable[index] > 1) {
+		finalPred = gsharePred;
+		gshare->update(pc,outcome);
+	
+	} else {
+		finalPred = bimodalPred;
+		bimodal->update(pc,outcome);
+		gshare->updateBHR(outcome);
+	}
+
+	if ( bimodalPred == outcome && gsharePred != outcome )
+		decrChooserTable(index);
+	else if( bimodalPred != outcome && gsharePred == outcome)
+		incrChooserTable(index);
+
+	return finalPred;
+}
+
+int HybridPredictor::run(char *fileName) {
+
+        string line;
+        ifstream myfile(fileName);
+        char actualOutcome;
+        char address[9];
+        unsigned int addr;
+        int outcome;
+
+        if ( myfile.is_open() ) {
+
+                while ( getline(myfile , line)) {
+                        actualOutcome = line.at(line.size() -1 );
+                        line.copy(address,line.size()-2,0);
+
+                        istringstream iss(address);
+                        numBranches++;
+                        iss >> hex >> addr;
+
+#ifdef VERBOSE
+                        cout << hex << addr << " " << actualOutcome << endl;
+#endif
+
+                        if (actualOutcome == 't' )
+                                outcome = 1;
+                        else
+                                outcome = 0;
+
+                        if( predict(addr,outcome) != outcome )
+                                numMispredict++;
+
+                        //update(addr,outcome);
+
+                }
+
+        }
+
+}
+
+int HybridPredictor::print() {
+	double misPredictRate;
+	misPredictRate = (double)numMispredict/(double)numBranches * 100 ;
+	cout << "number of predictions:\t" << numBranches << endl;
+	cout << "number of mispredictions:\t" << numMispredict << endl;
+	cout << "misprediction rate:\t" << fixed << setprecision(2) << misPredictRate << "%" << endl;
+
+
+	cout << "FINAL CHOOSER CONTENTS" << endl;
+	for(int i=0;i<chooserTableSize ; i++) {
+		cout << i << "\t" << chooserTable[i] << endl;
+	}
+
+	gshare->print("gshare");
+	bimodal->print("bimodal");
+}
 int main(int argc,char *argv[]) {
 
-	int m,n;
+	int m,n,mBimodal,k;
 
 	char *type = argv[1];
 	char *file;
 	cout << "COMMAND" << endl;
-	cout << "./sim " << type << " "; 
+	cout << "./sim " << type << " ";
+ 
 	if (strcmp(type,"bimodal") == 0 ) {
 		m=atoi(argv[2]);
 		n=0;
 		file = argv[3];
-		cout << m << " " ;
+		cout << m << " " << file << endl ;
 	} else if(strcmp(type,"gshare") ==0) {
 		m=atoi(argv[2]);
 		n = atoi(argv[3]);
 		file = argv[4];
-		cout << m << " " << n << " " ;
+		cout << m << " " << n << " " << file << endl ;
+	} else if(strcmp(type,"hybrid") == 0) {
+		k = atoi(argv[2]);
+		m = atoi(argv[3]);
+		n = atoi(argv[4]);
+		mBimodal = atoi(argv[5]);
+		file = argv[6];
+		cout << k << " " << m << " " << n << " " << mBimodal << " " << file << endl;
+	} else {
+		cout << "Invalid type of predictor" << endl;
+		exit(1);
 	}
 
-	cout << file << endl;
+	if ( strcmp(type,"hybrid") == 0 ) {
+		HybridPredictor hp(k,m,n,mBimodal);
+		hp.run(file);
 	
-	Predictor p1(m,n);
+		cout << "OUTPUT" << endl;
+		hp.print();
 
-	cout << "OUTPUT" << endl;
-	p1.run( file );
+	} else {
+		Predictor p1(m,n);
 
-	p1.print( type );
+		cout << "OUTPUT" << endl;
+		p1.run( file );
+
+		p1.print( type );
+	}
 /*
 	cout << "index: " << p1.getIndex(0x2F) << endl;
 //	p1.updateBHR(1);
