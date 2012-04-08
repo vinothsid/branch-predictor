@@ -1,0 +1,243 @@
+number of predictions:	2000000
+number of mispredictions:	579675
+gcc_trace.txt 7 2 misprediction rate:	28.98%
+number of predictions:	2000000
+number of mispredictions:	615177
+gcc_trace.txt 7 4 misprediction rate:	30.76%
+number of predictions:	2000000
+number of mispredictions:	664406
+gcc_trace.txt 7 6 misprediction rate:	33.22%
+number of predictions:	2000000
+number of mispredictions:	503567
+gcc_trace.txt 8 2 misprediction rate:	25.18%
+number of predictions:	2000000
+number of mispredictions:	531458
+gcc_trace.txt 8 4 misprediction rate:	26.57%
+number of predictions:	2000000
+number of mispredictions:	556476
+gcc_trace.txt 8 6 misprediction rate:	27.82%
+number of predictions:	2000000
+number of mispredictions:	611232
+gcc_trace.txt 8 8 misprediction rate:	30.56%
+number of predictions:	2000000
+number of mispredictions:	404948
+gcc_trace.txt 9 2 misprediction rate:	20.25%
+number of predictions:	2000000
+number of mispredictions:	448594
+gcc_trace.txt 9 4 misprediction rate:	22.43%
+number of predictions:	2000000
+number of mispredictions:	482866
+gcc_trace.txt 9 6 misprediction rate:	24.14%
+number of predictions:	2000000
+number of mispredictions:	521585
+gcc_trace.txt 9 8 misprediction rate:	26.08%
+number of predictions:	2000000
+number of mispredictions:	327851
+gcc_trace.txt 10 2 misprediction rate:	16.39%
+number of predictions:	2000000
+number of mispredictions:	359849
+gcc_trace.txt 10 4 misprediction rate:	17.99%
+number of predictions:	2000000
+number of mispredictions:	387262
+gcc_trace.txt 10 6 misprediction rate:	19.36%
+number of predictions:	2000000
+number of mispredictions:	422021
+gcc_trace.txt 10 8 misprediction rate:	21.10%
+number of predictions:	2000000
+number of mispredictions:	455390
+gcc_trace.txt 10 10 misprediction rate:	22.77%
+number of predictions:	2000000
+number of mispredictions:	274296
+gcc_trace.txt 11 2 misprediction rate:	13.71%
+number of predictions:	2000000
+number of mispredictions:	289768
+gcc_trace.txt 11 4 misprediction rate:	14.49%
+number of predictions:	2000000
+number of mispredictions:	302761
+gcc_trace.txt 11 6 misprediction rate:	15.14%
+number of predictions:	2000000
+number of mispredictions:	329365
+gcc_trace.txt 11 8 misprediction rate:	16.47%
+number of predictions:	2000000
+number of mispredictions:	366769
+gcc_trace.txt 11 10 misprediction rate:	18.34%
+number of predictions:	2000000
+number of mispredictions:	243917
+gcc_trace.txt 12 2 misprediction rate:	12.20%
+number of predictions:	2000000
+number of mispredictions:	244675
+gcc_trace.txt 12 4 misprediction rate:	12.23%
+number of predictions:	2000000
+number of mispredictions:	249123
+gcc_trace.txt 12 6 misprediction rate:	12.46%
+number of predictions:	2000000
+number of mispredictions:	260043
+gcc_trace.txt 12 8 misprediction rate:	13.00%
+number of predictions:	2000000
+number of mispredictions:	286523
+gcc_trace.txt 12 10 misprediction rate:	14.33%
+number of predictions:	2000000
+number of mispredictions:	308098
+gcc_trace.txt 12 12 misprediction rate:	15.40%
+number of predictions:	2000000
+number of mispredictions:	161581
+jpeg_trace.txt 7 2 misprediction rate:	8.08%
+number of predictions:	2000000
+number of mispredictions:	178396
+jpeg_trace.txt 7 4 misprediction rate:	8.92%
+number of predictions:	2000000
+number of mispredictions:	194735
+jpeg_trace.txt 7 6 misprediction rate:	9.74%
+number of predictions:	2000000
+number of mispredictions:	155708
+jpeg_trace.txt 8 2 misprediction rate:	7.79%
+number of predictions:	2000000
+number of mispredictions:	157505
+jpeg_trace.txt 8 4 misprediction rate:	7.88%
+number of predictions:	2000000
+number of mispredictions:	177337
+jpeg_trace.txt 8 6 misprediction rate:	8.87%
+number of predictions:	2000000
+number of mispredictions:	184042
+jpeg_trace.txt 8 8 misprediction rate:	9.20%
+number of predictions:	2000000
+number of mispredictions:	151619
+jpeg_trace.txt 9 2 misprediction rate:	7.58%
+number of predictions:	2000000
+number of mispredictions:	153519
+jpeg_trace.txt 9 4 misprediction rate:	7.68%
+number of predictions:	2000000
+number of mispredictions:	162637
+jpeg_trace.txt 9 6 misprediction rate:	8.13%
+number of predictions:	2000000
+number of mispredictions:	166058
+jpeg_trace.txt 9 8 misprediction rate:	8.30%
+number of predictions:	2000000
+number of mispredictions:	149728
+jpeg_trace.txt 10 2 misprediction rate:	7.49%
+number of predictions:	2000000
+number of mispredictions:	147514
+jpeg_trace.txt 10 4 misprediction rate:	7.38%
+number of predictions:	2000000
+number of mispredictions:	151513
+jpeg_trace.txt 10 6 misprediction rate:	7.58%
+number of predictions:	2000000
+number of mispredictions:	149061
+jpeg_trace.txt 10 8 misprediction rate:	7.45%
+number of predictions:	2000000
+number of mispredictions:	158951
+jpeg_trace.txt 10 10 misprediction rate:	7.95%
+number of predictions:	2000000
+number of mispredictions:	148947
+jpeg_trace.txt 11 2 misprediction rate:	7.45%
+number of predictions:	2000000
+number of mispredictions:	145362
+jpeg_trace.txt 11 4 misprediction rate:	7.27%
+number of predictions:	2000000
+number of mispredictions:	147639
+jpeg_trace.txt 11 6 misprediction rate:	7.38%
+number of predictions:	2000000
+number of mispredictions:	143348
+jpeg_trace.txt 11 8 misprediction rate:	7.17%
+number of predictions:	2000000
+number of mispredictions:	148866
+jpeg_trace.txt 11 10 misprediction rate:	7.44%
+number of predictions:	2000000
+number of mispredictions:	148835
+jpeg_trace.txt 12 2 misprediction rate:	7.44%
+number of predictions:	2000000
+number of mispredictions:	145193
+jpeg_trace.txt 12 4 misprediction rate:	7.26%
+number of predictions:	2000000
+number of mispredictions:	143752
+jpeg_trace.txt 12 6 misprediction rate:	7.19%
+number of predictions:	2000000
+number of mispredictions:	136893
+jpeg_trace.txt 12 8 misprediction rate:	6.84%
+number of predictions:	2000000
+number of mispredictions:	143647
+jpeg_trace.txt 12 10 misprediction rate:	7.18%
+number of predictions:	2000000
+number of mispredictions:	147072
+jpeg_trace.txt 12 12 misprediction rate:	7.35%
+number of predictions:	2000000
+number of mispredictions:	486879
+perl_trace.txt 7 2 misprediction rate:	24.34%
+number of predictions:	2000000
+number of mispredictions:	519197
+perl_trace.txt 7 4 misprediction rate:	25.96%
+number of predictions:	2000000
+number of mispredictions:	574206
+perl_trace.txt 7 6 misprediction rate:	28.71%
+number of predictions:	2000000
+number of mispredictions:	338433
+perl_trace.txt 8 2 misprediction rate:	16.92%
+number of predictions:	2000000
+number of mispredictions:	381794
+perl_trace.txt 8 4 misprediction rate:	19.09%
+number of predictions:	2000000
+number of mispredictions:	409087
+perl_trace.txt 8 6 misprediction rate:	20.45%
+number of predictions:	2000000
+number of mispredictions:	495760
+perl_trace.txt 8 8 misprediction rate:	24.79%
+number of predictions:	2000000
+number of mispredictions:	271429
+perl_trace.txt 9 2 misprediction rate:	13.57%
+number of predictions:	2000000
+number of mispredictions:	293687
+perl_trace.txt 9 4 misprediction rate:	14.68%
+number of predictions:	2000000
+number of mispredictions:	324956
+perl_trace.txt 9 6 misprediction rate:	16.25%
+number of predictions:	2000000
+number of mispredictions:	353184
+perl_trace.txt 9 8 misprediction rate:	17.66%
+number of predictions:	2000000
+number of mispredictions:	212689
+perl_trace.txt 10 2 misprediction rate:	10.63%
+number of predictions:	2000000
+number of mispredictions:	226958
+perl_trace.txt 10 4 misprediction rate:	11.35%
+number of predictions:	2000000
+number of mispredictions:	230495
+perl_trace.txt 10 6 misprediction rate:	11.52%
+number of predictions:	2000000
+number of mispredictions:	248331
+perl_trace.txt 10 8 misprediction rate:	12.42%
+number of predictions:	2000000
+number of mispredictions:	291319
+perl_trace.txt 10 10 misprediction rate:	14.57%
+number of predictions:	2000000
+number of mispredictions:	202126
+perl_trace.txt 11 2 misprediction rate:	10.11%
+number of predictions:	2000000
+number of mispredictions:	193603
+perl_trace.txt 11 4 misprediction rate:	9.68%
+number of predictions:	2000000
+number of mispredictions:	172036
+perl_trace.txt 11 6 misprediction rate:	8.60%
+number of predictions:	2000000
+number of mispredictions:	180021
+perl_trace.txt 11 8 misprediction rate:	9.00%
+number of predictions:	2000000
+number of mispredictions:	179598
+perl_trace.txt 11 10 misprediction rate:	8.98%
+number of predictions:	2000000
+number of mispredictions:	180545
+perl_trace.txt 12 2 misprediction rate:	9.03%
+number of predictions:	2000000
+number of mispredictions:	161749
+perl_trace.txt 12 4 misprediction rate:	8.09%
+number of predictions:	2000000
+number of mispredictions:	149959
+perl_trace.txt 12 6 misprediction rate:	7.50%
+number of predictions:	2000000
+number of mispredictions:	129841
+perl_trace.txt 12 8 misprediction rate:	6.49%
+number of predictions:	2000000
+number of mispredictions:	134202
+perl_trace.txt 12 10 misprediction rate:	6.71%
+number of predictions:	2000000
+number of mispredictions:	143222
+perl_trace.txt 12 12 misprediction rate:	7.16%
